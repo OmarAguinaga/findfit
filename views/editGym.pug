@@ -1,0 +1,8 @@
+extends layout
+
+include mixins/_gymForm
+
+block content
+  .inner
+    h2= title
+    +gymForm(gym)

@@ -1,0 +1,32 @@
+mixin gymForm(gym = {})
+  form(action=`/add/${gym.id || '' }` method='POST' class='card' enctype="multipart/form-data") 
+
+    label(for='name') Name
+    input(type='text' name='name' value=gym.name)
+    label(for='description') Description
+    textarea(type='text' name='description')= gym.description
+
+    //- Image Upload
+    label(for="photo") Photo
+      input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+      if gym.photo
+        img(src=`/uploads/${gym.photo}`, alt=gym.name width=200)
+    //- address, long and lat
+    label(for='address') Address
+    input(type="text" id="address" name="location[address]" value=(gym.location && gym.location.address))
+    label(for="lng") Address Longitude
+    input(type="text" id="lng" name="location[coordinates][0]" value=(gym.location && gym.location.coordinates[0]) required)
+    label(for="lat") Address Latitude
+    input(type="text" id="lat" name="location[coordinates][1]" value=(gym.location && gym.location.coordinates[1]) required)
+
+
+    - const choices = ['Wifi', '24/7', 'CrossFit', 'Swimming Pool', 'Test Day']
+    - const tags = gym.tags || []
+
+    ul.tags
+      each choice in choices 
+        .tag.tag__choice 
+          input(type='checkbox' id=choice value= choice name='tags' checked=(tags.includes(choice)))
+          label(for=choice)=choice
+  
+    input(type='submit' value='Save 👍 ' class='button')

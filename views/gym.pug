@@ -1,0 +1,21 @@
+extends layout
+
+
+block content
+  .single
+    .single__hero
+      img.single__image(src=`/uploads/${gym.photo || 'gym.jpeg'} `)
+      h2.title.title--single
+        a(href=`/gym/${gym.slug}`) #{gym.name}
+
+  .single__details.inner
+    img.single__map(src=h.staticMap(gym.location.coordinates))
+    p.single__location= gym.location.address
+    p= gym.description
+
+    if gym.tags
+      ul.tags
+        each tag in gym.tags
+          li.tag
+            a.tag__link(href=`/tags/${tag}`)
+              span.tag__text ##{tag}
