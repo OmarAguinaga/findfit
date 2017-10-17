@@ -3,7 +3,7 @@ html
   head
     title= `${title} | ${h.siteName}`
     link(rel='stylesheet', href='/dist/style.css')
-    link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    link(rel="shortcut icon" type="image/png" href="/images/icons/fit.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
@@ -20,7 +20,7 @@ html
                   span #{item.title}
           .nav__section.nav__section--search
             .search
-              input.search__input(type="text" placeholder="Coffee, beer..." name="search")
+              input.search__input(type="text" placeholder="Fitness, Swimm... " name="search")
               .search__results
           .nav__section.nav__section--user
             if user
