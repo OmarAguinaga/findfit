@@ -8,7 +8,7 @@ body {
   body:before {
     content: '';
     display: block;
-    background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: linear-gradient(90deg, #ff512f, #dd2476);
     height: 10px;
     width: 100%; }
 
@@ -445,7 +445,12 @@ body {
   font-size: 1.5rem;
   color: #303030; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 5rem;
   font-family: 'Panama';
   font-weight: 600;
@@ -456,7 +461,7 @@ a {
   color: #303030; }
 
 p a {
-  border-bottom: 2px solid #FFC40E; }
+  border-bottom: 2px solid #ffc40e; }
 
 p {
   line-height: 2;
@@ -510,7 +515,7 @@ label {
 .form {
   background: white;
   padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  box-shadow: linear-gradient(90deg, #ff512f, #dd2476); }
   .form + .form {
     margin-top: 4rem; }
   .form h2 {
@@ -577,7 +582,7 @@ label {
     background: none;
     border: 0; }
     .flash__remove:hover {
-      color: #FFC40E; }
+      color: #ffc40e; }
   .flash:after {
     content: '';
     display: block;
@@ -642,7 +647,7 @@ label {
     .nav__link:hover, .nav__link--active {
       border-bottom-color: rgba(0, 0, 0, 0.2);
       border-right-color: rgba(0, 0, 0, 0.05);
-      background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%) fixed; }
+      background: linear-gradient(to right, #ff512f, #dd2476) fixed; }
       .nav__link:hover svg, .nav__link--active svg {
         -ms-transform: scale(1.2);
             transform: scale(1.2); }
@@ -774,7 +779,7 @@ label {
     width: 100%;
     top: 0;
     right: 0;
-    background: linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), linear-gradient(135deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), linear-gradient(315deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
+    background: linear-gradient(180deg, #2c3e50, #bdc3c7);
     opacity: 0.6;
     z-index: 1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
@@ -820,9 +825,9 @@ label {
         background: #e6e6e6;
         padding: 1rem 1rem 1rem 4rem; }
       .tag__choice input:checked + label {
-        background: #FFC40E; }
+        background: #ffc40e; }
   .tag__link {
-    background: #FFC40E;
+    background: #ffc40e;
     color: #303030;
     display: -ms-flexbox;
     display: flex;
@@ -864,7 +869,7 @@ label {
     width: 100%;
     top: 0;
     right: 0;
-    background: linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), linear-gradient(135deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), linear-gradient(315deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
+    background: linear-gradient(180deg, #2c3e50, #bdc3c7);
     opacity: 0.6;
     z-index: 1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
@@ -956,7 +961,7 @@ label {
     left: 0;
     content: '';
     display: block;
-    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: linear-gradient(0, #ff512f, #dd2476);
     position: absolute;
     height: 100%;
     background-attachment: fixed; }
@@ -989,7 +994,7 @@ label {
     font-size: 1.2rem;
     color: #999999; }
   .review__stars {
-    color: #FFC40E; }
+    color: #ffc40e; }
   .review__body {
     padding: 2rem; }
   .review p {
@@ -1010,7 +1015,7 @@ label {
     .reviewer__stars input {
       display: none; }
       .reviewer__stars input:checked ~ label {
-        color: #FFC40E; }
+        color: #ffc40e; }
       .reviewer__stars input + label {
         font-size: 0;
         /* These are in the opposite DOM order
@@ -1103,7 +1108,7 @@ label {
 
 .button {
   border: 0;
-  background: #FFC40E;
+  background: #ffc40e;
   color: #303030;
   font-family: 'Panama';
   font-weight: 600; }
