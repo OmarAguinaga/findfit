@@ -23,6 +23,11 @@ const userSchema = new Schema({
   }
 });
 
+userSchema.virtual('gravatar').get(function() {
+  const hash = md5('this.email');
+  return `https://gravatar.com/avatar/${hash}?s=200`;
+});
+
 // Add pluinfot he password field
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
