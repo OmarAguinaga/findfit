@@ -45,7 +45,7 @@ router.post(
   // validation will be passed, but registration
   // will be failed in some reasons, e.g. second
   // registration with same email
-  userController.register,
+  catchErrors(userController.register),
   authController.login
 );
 
