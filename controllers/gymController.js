@@ -45,6 +45,7 @@ exports.resize = async (req, res, next) => {
 };
 
 exports.createGym = async (req, res) => {
+  req.body.author = req.user._id; // Associate user with the gym
   const gym = await new Gym(req.body).save();
   req.flash(
     'success',
@@ -59,12 +60,18 @@ exports.getGyms = async (req, res) => {
   res.render('gyms', { title: 'Gyms', gyms });
 };
 
+const confirmOwner = (store, user) => {
+  if (!store.author.equals(user._id)) {
+    throw Error('You must own a Gym in order to edit it!');
+  }
+};
+
 exports.editGym = async (req, res) => {
   // Find the gym given the id
   const gym = await Gym.findOne({ _id: req.params.id });
   // Confirm they are the owner of the gym
   // TODO
-
+  confirmOwner(gym, req.user);
   // Render out the edit form so the user can update
   res.render('editGym', { title: `Edit: ${gym.name}`, gym });
 };
@@ -80,14 +87,14 @@ exports.updateGym = async (req, res) => {
 
   req.flash(
     'success',
-    `Succesfully updated <strong>${gym.name}</strong>. <a href="/gyms/${gym.slug}">View Gym </a>`
+    `Succesfully updated <strong>${gym.name}</strong>. <a href="/gym/${gym.slug}">View Gym </a>`
   );
   res.redirect(`/gyms/${gym._id}/edit`);
   // redirect them to the gym and tell them it worked
 };
 
 exports.getGymBySlug = async (req, res, next) => {
-  const gym = await Gym.findOne({ slug: req.params.slug });
+  const gym = await Gym.findOne({ slug: req.params.slug }).populate('author');
   if (!gym) return next();
   res.render('gym', { gym, title: gym.name });
 };

@@ -1,5 +1,5 @@
 mixin gymForm(gym = {})
-  form(action=`/add/${gym.id || '' }` method='POST' class='card' enctype="multipart/form-data") 
+  form(action=`/add/${gym._id || '' }` method='POST' class='card' enctype="multipart/form-data") 
 
     label(for='name') Name
     input(type='text' name='name' value=gym.name)

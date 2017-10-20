@@ -21,7 +21,7 @@ router.post(
   '/add/:id',
   gymController.upload,
   catchErrors(gymController.resize),
-  catchErrors(gymController.createGym)
+  catchErrors(gymController.updateGym)
 );
 
 router.get('/gyms/:id/edit', catchErrors(gymController.editGym));

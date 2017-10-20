@@ -2,9 +2,10 @@ mixin gymCard(gym = {})
   .gym
     .gym__hero
       .gym__actions
-        .gym__action.gym__action--edit
-          a(href=`/gyms/${gym._id}/edit`)
-            != h.icon('pencil')
+        if user && gym.author.equals(user._id)
+          .gym__action.gym__action--edit
+            a(href=`/gyms/${gym._id}/edit`)
+              != h.icon('pencil')
       img(src=`/uploads/${gym.photo || 'gym.jpeg'}`)
       h2.title
         a(href=`/gym/${gym.slug}`) #{gym.name}
