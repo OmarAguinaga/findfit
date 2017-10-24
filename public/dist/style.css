@@ -461,7 +461,7 @@ a {
   color: #303030; }
 
 p a {
-  border-bottom: 2px solid #ffc40e; }
+  border-bottom: 2px solid #ff512f; }
 
 p {
   line-height: 2;
@@ -473,10 +473,7 @@ p {
   z-index: 2;
   margin: 0;
   font-size: 40px;
-  z-index: 2;
   line-height: 1.1;
-  -ms-transform: skew(0, -3deg);
-      transform: skew(0, -3deg);
   line-height: 1.1; }
   .title--long {
     font-size: 30px; }
@@ -488,12 +485,10 @@ p {
     height: 100%;
     display: block;
     position: absolute;
-    z-index: -1;
-    -ms-transform: skew(-5deg);
-        transform: skew(-5deg); }
+    z-index: -1; }
   .title a {
     border-bottom: 0;
-    background-image: linear-gradient(to right, rgba(255, 196, 14, 0.8) 100%, rgba(255, 196, 14, 0.8) 50%); }
+    background-image: linear-gradient(to right, rgba(255, 81, 47, 0.8) 100%, rgba(255, 81, 47, 0.8) 50%); }
 
 .title--single {
   max-width: 600px;
@@ -582,7 +577,7 @@ label {
     background: none;
     border: 0; }
     .flash__remove:hover {
-      color: #ffc40e; }
+      color: #ff512f; }
   .flash:after {
     content: '';
     display: block;
@@ -781,9 +776,7 @@ label {
     right: 0;
     background: linear-gradient(180deg, #2c3e50, #bdc3c7);
     opacity: 0.6;
-    z-index: 1;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+    z-index: 1; }
   .gym__hero img {
     height: 100%;
     width: 100%;
@@ -791,9 +784,7 @@ label {
     right: 0;
     position: absolute;
     left: 0;
-    object-fit: cover;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+    object-fit: cover; }
 
 .tags {
   margin: 0;
@@ -825,17 +816,18 @@ label {
         background: #e6e6e6;
         padding: 1rem 1rem 1rem 4rem; }
       .tag__choice input:checked + label {
-        background: #ffc40e; }
+        background: #ff512f;
+        color: white; }
   .tag__link {
-    background: #ffc40e;
-    color: #303030;
+    background: #ff512f;
+    color: white;
     display: -ms-flexbox;
     display: flex;
     padding-left: 10px;
     -webkit-clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%);
             clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%); }
     .tag__link--active {
-      background: #827cd2; }
+      background: #666666; }
       .tag__link--active .tag__text {
         color: white; }
   .tag__text {
@@ -994,7 +986,7 @@ label {
     font-size: 1.2rem;
     color: #999999; }
   .review__stars {
-    color: #ffc40e; }
+    color: #ff512f; }
   .review__body {
     padding: 2rem; }
   .review p {
@@ -1015,7 +1007,7 @@ label {
     .reviewer__stars input {
       display: none; }
       .reviewer__stars input:checked ~ label {
-        color: #ffc40e; }
+        color: #ff512f; }
       .reviewer__stars input + label {
         font-size: 0;
         /* These are in the opposite DOM order
@@ -1041,7 +1033,7 @@ label {
           -ms-flex-order: 1;
               order: 1; }
         .reviewer__stars input + label:hover, .reviewer__stars input + label:hover ~ label {
-          color: #ffdd74; }
+          color: #ffa695; }
   .reviewer textarea {
     border: 0;
     outline: 0;
@@ -1108,8 +1100,8 @@ label {
 
 .button {
   border: 0;
-  background: #ffc40e;
-  color: #303030;
+  background: #ff512f;
+  color: white;
   font-family: 'Panama';
   font-weight: 600; }
 

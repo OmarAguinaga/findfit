@@ -69,7 +69,6 @@
     background: linear-gradient(180deg, #2c3e50, #bdc3c7);
     opacity: 0.6;
     z-index: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
   img {
     height: 100%;
@@ -79,6 +78,5 @@
     position: absolute;
     left: 0;
     object-fit: cover;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
 }

@@ -20,7 +20,7 @@ mixin gymForm(gym = {})
     input(type="text" id="lat" name="location[coordinates][1]" value=(gym.location && gym.location.coordinates[1]) required)
 
 
-    - const choices = ['Wifi', '24/7', 'CrossFit', 'Swimming Pool', 'Test Day']
+    - const choices = ['Wifi', '24-7', 'CrossFit', 'Swimming Pool', 'Test Day']
     - const tags = gym.tags || []
 
     ul.tags
