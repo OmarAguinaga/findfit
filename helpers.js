@@ -20,7 +20,7 @@ exports.staticMap = ([lng, lat]) =>
 exports.icon = name => fs.readFileSync(`./public/images/icons/${name}.svg`);
 
 // Some details about the site
-exports.siteName = `Gym!`;
+exports.siteName = `FindFit`;
 
 exports.menu = [
   { slug: '/gyms', title: 'Gyms', icon: 'gym' },
