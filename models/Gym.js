@@ -43,6 +43,13 @@ const gymSchema = new mongoose.Schema({
   }
 });
 
+// Define our index
+
+gymSchema.index({
+  name: 'text',
+  description: 'text'
+});
+
 gymSchema.pre('save', async function(next) {
   if (!this.isModified('name')) {
     next();

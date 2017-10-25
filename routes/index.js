@@ -62,4 +62,11 @@ router.post(
   authController.confirmPasswords,
   catchErrors(authController.update)
 );
+
+/*
+API
+*/
+
+router.get('/api/search', catchErrors(gymController.searchGym));
+
 module.exports = router;

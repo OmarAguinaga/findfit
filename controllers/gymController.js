@@ -110,3 +110,25 @@ exports.getGymsByTag = async (req, res) => {
 
   res.render('tags', { tags, gyms, title: 'Tags', tag });
 };
+
+exports.searchGym = async (req, res) => {
+  const gyms = await Gym
+    // find stores that mathc
+    .find(
+      {
+        $text: {
+          $search: req.query.q
+        }
+      },
+      {
+        score: { $meta: 'textScore' }
+      }
+    )
+    // then sort them
+    .sort({
+      score: { $meta: 'textScore' }
+    })
+    // limit to only 5 results
+    .limit(5);
+  res.json(gyms);
+};
