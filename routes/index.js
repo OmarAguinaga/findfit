@@ -62,11 +62,13 @@ router.post(
   authController.confirmPasswords,
   catchErrors(authController.update)
 );
+router.get('/map', gymController.mapPage);
 
 /*
 API
 */
 
 router.get('/api/search', catchErrors(gymController.searchGym));
+router.get('/api/gyms/near', catchErrors(gymController.mapGyms));
 
 module.exports = router;

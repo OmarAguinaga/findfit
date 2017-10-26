@@ -132,3 +132,27 @@ exports.searchGym = async (req, res) => {
     .limit(5);
   res.json(gyms);
 };
+
+exports.mapGyms = async (req, res) => {
+  const coordinates = [req.query.lng, req.query.lat].map(parseFloat);
+
+  const q = {
+    location: {
+      $near: {
+        $geometry: {
+          type: 'Point',
+          coordinates
+        },
+        $maxDistance: 10000 // 10km
+      }
+    }
+  };
+  const gyms = await Gym.find(q)
+    .select('slug name description location photo')
+    .limit(10);
+  res.json(gyms);
+};
+
+exports.mapPage = (req, res) => {
+  res.render('map', { title: 'Map' });
+};

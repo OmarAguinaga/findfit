@@ -50,6 +50,7 @@ gymSchema.index({
   description: 'text'
 });
 
+gymSchema.index({ location: '2dsphere' });
 gymSchema.pre('save', async function(next) {
   if (!this.isModified('name')) {
     next();
