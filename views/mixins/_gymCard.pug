@@ -2,6 +2,14 @@ mixin gymCard(gym = {})
   .gym
     .gym__hero
       .gym__actions
+        if user
+          .gym__action.gym__action--heart
+            form.heart(method='POST' action=`/api/gyms/${gym._id}/heart`)
+              - const heartStrings = user.hearts.map(obj => obj.toString())
+              - const heartClass = heartStrings.includes(gym._id.toString()) ? 'heart__button--hearted': ''
+
+              button.heart__button(type="submit" name="heart" class=heartClass)
+                != h.icon("heart")
         if user && gym.author.equals(user._id)
           .gym__action.gym__action--edit
             a(href=`/gyms/${gym._id}/edit`)

@@ -63,6 +63,11 @@ router.post(
   catchErrors(authController.update)
 );
 router.get('/map', gymController.mapPage);
+router.get(
+  '/hearts',
+  authController.isLoggedIn,
+  catchErrors(gymController.getHearts)
+);
 
 /*
 API
@@ -70,5 +75,6 @@ API
 
 router.get('/api/search', catchErrors(gymController.searchGym));
 router.get('/api/gyms/near', catchErrors(gymController.mapGyms));
+router.post('/api/gyms/:id/heart', catchErrors(gymController.heartGym));
 
 module.exports = router;

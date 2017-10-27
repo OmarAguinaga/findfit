@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Gym = mongoose.model('Gym');
+const User = mongoose.model('User');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
@@ -155,4 +156,23 @@ exports.mapGyms = async (req, res) => {
 
 exports.mapPage = (req, res) => {
   res.render('map', { title: 'Map' });
+};
+
+exports.heartGym = async (req, res) => {
+  const hearts = req.user.hearts.map(obj => obj.toString());
+  const operator = hearts.includes(req.params.id) ? '$pull' : '$addToSet';
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { [operator]: { hearts: req.params.id } },
+    { new: true }
+  );
+  res.json(user);
+};
+
+exports.getHearts = async (req, res) => {
+  const gyms = await Gym.find({
+    _id: { $in: req.user.hearts }
+  });
+
+  res.render('gyms', { title: 'Hearted Gyms', gyms });
 };
