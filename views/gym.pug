@@ -1,7 +1,8 @@
 extends layout
-
+include mixins/_reviewForm
 
 block content
+  pre=h.dump(gym)
   .single
     .single__hero
       img.single__image(src=`/uploads/${gym.photo || 'gym.jpeg'} `)
@@ -18,4 +19,7 @@ block content
         each tag in gym.tags
           li.tag
             a.tag__link(href=`/tags/${tag}`)
-              span.tag__text ##{tag}
+              span.tag__text ##{tag}  
+    if user 
+      +reviewForm(gym)
+    
