@@ -62,7 +62,7 @@ gymSchema.pre('save', async function(next) {
     return; // stop this function from running
   }
   this.slug = slug(this.name);
-  // find other gyms that have a slug of wes, wes-1, wes-2
+  // find other gyms that have a slug of gym, gym-1, gym-2
   const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
   const gymsWithSlug = await this.constructor.find({ slug: slugRegEx });
   if (gymsWithSlug.length) {
