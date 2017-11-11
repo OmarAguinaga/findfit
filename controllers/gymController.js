@@ -95,7 +95,9 @@ exports.updateGym = async (req, res) => {
 };
 
 exports.getGymBySlug = async (req, res, next) => {
-  const gym = await Gym.findOne({ slug: req.params.slug }).populate('author');
+  const gym = await Gym.findOne({ slug: req.params.slug }).populate(
+    'author reviews'
+  );
   if (!gym) return next();
   res.render('gym', { gym, title: gym.name });
 };

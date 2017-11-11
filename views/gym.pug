@@ -1,6 +1,6 @@
 extends layout
-
-
+include mixins/_reviewForm
+include mixins/_review
 block content
   .single
     .single__hero
@@ -18,4 +18,13 @@ block content
         each tag in gym.tags
           li.tag
             a.tag__link(href=`/tags/${tag}`)
-              span.tag__text ##{tag}
+              span.tag__text ##{tag}  
+    if user 
+      +reviewForm(gym)
+    
+    if gym.reviews
+      .reviews
+        each review in gym.reviews
+          .review
+            +review(review)
+    
