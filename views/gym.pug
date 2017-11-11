@@ -1,8 +1,7 @@
 extends layout
 include mixins/_reviewForm
-
+include mixins/_review
 block content
-  pre=h.dump(gym)
   .single
     .single__hero
       img.single__image(src=`/uploads/${gym.photo || 'gym.jpeg'} `)
@@ -22,4 +21,10 @@ block content
               span.tag__text ##{tag}  
     if user 
       +reviewForm(gym)
+    
+    if gym.reviews
+      .reviews
+        each review in gym.reviews
+          .review
+            +review(review)
     
