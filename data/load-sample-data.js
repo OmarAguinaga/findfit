@@ -31,7 +31,7 @@ async function deleteData() {
 async function loadData() {
   try {
     await Gym.insertMany(gyms);
-    // await Review.insertMany(reviews);
+    await Review.insertMany(reviews);
     await User.insertMany(users);
     console.log('👍👍👍👍👍👍👍👍 Done!');
     process.exit();

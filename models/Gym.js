@@ -80,11 +80,49 @@ gymSchema.statics.getTagsList = function() {
   ]);
 };
 
+gymSchema.statics.getTopGyms = function() {
+  return this.aggregate([
+    // Lookup Gyms and populate their reviews
+    {
+      $lookup: {
+        from: 'reviews',
+        localField: '_id',
+        foreignField: 'gym',
+        as: 'reviews'
+      }
+    },
+    // filter for only items that have 2 or more reviews
+    { $match: { 'reviews.1': { $exists: true } } },
+    // add  the average reviews field
+    {
+      $project: {
+        photo: '$$ROOT.photo',
+        name: '$$ROOT.name',
+        reviews: '$$ROOT.reviews',
+        slug: '$$ROOT.slug',
+        averageRating: { $avg: '$reviews.rating' }
+      }
+    },
+    // sort it by our new field, highest reviews first
+    { $sort: { averageRating: -1 } },
+    // limit to at most 10
+    { $limit: 10 }
+  ]);
+};
+
 // find reviews where the gyms _id property === reviews gym property
 gymSchema.virtual('reviews', {
   ref: 'Review', // what model to link?
   localField: '_id', // which field on the gym?
   foreignField: 'gym' // which field on the review?
 });
+
+function autopopulate(next) {
+  this.populate('reviews');
+  next();
+}
+
+gymSchema.pre('find', autopopulate);
+gymSchema.pre('findOne', autopopulate);
 
 module.exports = mongoose.model('Gym', gymSchema);
