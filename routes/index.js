@@ -9,6 +9,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 // Do work here
 router.get('/', catchErrors(gymController.getGyms));
 router.get('/gyms', catchErrors(gymController.getGyms));
+router.get('/gyms/page/:page', catchErrors(gymController.getGyms));
 router.get('/add', authController.isLoggedIn, gymController.addGym);
 
 router.post(
